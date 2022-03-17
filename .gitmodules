@@ -7,3 +7,6 @@
 [submodule "chapter-3-solidity/Voting/lib/ds-test"]
 	path = chapter-3-solidity/Voting/lib/ds-test
 	url = https://github.com/dapphub/ds-test
+[submodule "chapter-3-solidity/Voting/lib/openzeppelin-contracts"]
+	path = chapter-3-solidity/Voting/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
