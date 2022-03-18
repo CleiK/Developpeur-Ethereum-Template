@@ -1,9 +1,3 @@
-[submodule "3. Solidity/lib/ds-test"]
-	path = 3. Solidity/lib/ds-test
-	url = https://github.com/dapphub/ds-test
-[submodule "chapter-3-solidity/election/lib/ds-test"]
-	path = chapter-3-solidity/election/lib/ds-test
-	url = https://github.com/dapphub/ds-test
 [submodule "chapter-3-solidity/Voting/lib/ds-test"]
 	path = chapter-3-solidity/Voting/lib/ds-test
 	url = https://github.com/dapphub/ds-test
