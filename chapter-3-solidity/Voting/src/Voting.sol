@@ -3,6 +3,8 @@ pragma solidity 0.8.13;
 
 import "../lib/openzeppelin-contracts/contracts/access/Ownable.sol";
 
+//import "@openzeppelin/contracts/access/Ownable.sol";
+
 contract Voting is Ownable {
     /// Types
 
@@ -35,10 +37,10 @@ contract Voting is Ownable {
     WorkflowStatus votingStatus;
 
     // proposalId -> proposal
-    mapping(uint256 => Proposal) proposals;
+    mapping(uint256 => Proposal) public proposals;
 
     // voter address -> voter structure
-    mapping(address => Voter) voters;
+    mapping(address => Voter) public voters;
 
     // proposalCount starts at 1 because 0 means no proposal
     uint256 proposalCount = 1;
