@@ -1,8 +1,22 @@
 {
+  "name": "voting",
+  "version": "1.0.0",
+  "main": "test/voting_test.js",
+  "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.5.0"
+    "truffle": "5.4.29",
+    "chai": "^4.3.6",
+    "@openzeppelin/contracts": "^4.5.0",
+    "@openzeppelin/test-helpers": "^0.5.15",
+    "solidity-coverage": "^0.7.20",
+    "eth-gas-reporter": "^0.2.24"
   },
   "devDependencies": {
     "@openzeppelin/test-helpers": "^0.5.15"
+  },
+  "scripts": {
+    "migrate": "truffle migrate",
+    "test": "truffle test",
+    "coverage": "truffle run coverage"
   }
 }
