@@ -743,7 +743,7 @@
   "sourceMap": "57:176:0:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "57:176:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;104:53;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;161:70;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;104:53;151:1;138:10;:14;;;;104:53;:::o;161:70::-;197:4;216:10;;209:17;;161:70;:::o;88:117:1:-;197:1;194;187:12;334:77;371:7;400:5;389:16;;334:77;;;:::o;417:122::-;490:24;508:5;490:24;:::i;:::-;483:5;480:35;470:63;;529:1;526;519:12;470:63;417:122;:::o;545:139::-;591:5;629:6;616:20;607:29;;645:33;672:5;645:33;:::i;:::-;545:139;;;;:::o;690:329::-;749:6;798:2;786:9;777:7;773:23;769:32;766:119;;;804:79;;:::i;:::-;766:119;924:1;949:53;994:7;985:6;974:9;970:22;949:53;:::i;:::-;939:63;;895:117;690:329;;;;:::o;1025:118::-;1112:24;1130:5;1112:24;:::i;:::-;1107:3;1100:37;1025:118;;:::o;1149:222::-;1242:4;1280:2;1269:9;1265:18;1257:26;;1293:71;1361:1;1350:9;1346:17;1337:6;1293:71;:::i;:::-;1149:222;;;;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.13;\n\ncontract SimpleStorage {\n  uint storedData;\n\n  function set(uint x) public {\n    storedData = x;\n  }\n\n  function get() public view returns (uint) {\n    return storedData;\n  }\n}\n",
-  "sourcePath": "/home/cleik/Documents/Development/alyra/Developpeur-Ethereum-Template/chapter-6-dapp-ci/react/contracts/SimpleStorage.sol",
+  "sourcePath": "/home/cleik/Documents/Development/Alyra/Developpeur-Ethereum-Template/chapter-6-dapp-ci/react/contracts/SimpleStorage.sol",
   "ast": {
     "absolutePath": "project:/contracts/SimpleStorage.sol",
     "exportedSymbols": {
@@ -1261,15 +1261,27 @@
     "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
   },
   "networks": {
+    "1337": {
+      "events": {},
+      "links": {},
+      "address": "0x668eD30aAcC7C7c206aAF1327d733226416233E2",
+      "transactionHash": "0xe3eb76b33f5fc8b2eb37f2901310b98b8bd5c21457cab69ca774f911ba9b5753"
+    },
     "1649786540292": {
       "events": {},
       "links": {},
       "address": "0x40D26441945f1cE51A7cBf55593DFa6041Bc5Bea",
       "transactionHash": "0x47b4bead89c8ed3642a5686c9c6515e6069bff55b7d7ec96e43eca42a320beec"
+    },
+    "1650384072778": {
+      "events": {},
+      "links": {},
+      "address": "0x668eD30aAcC7C7c206aAF1327d733226416233E2",
+      "transactionHash": "0xe3eb76b33f5fc8b2eb37f2901310b98b8bd5c21457cab69ca774f911ba9b5753"
     }
   },
   "schemaVersion": "3.4.6",
-  "updatedAt": "2022-04-12T18:06:49.893Z",
+  "updatedAt": "2022-04-19T16:30:14.414Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
