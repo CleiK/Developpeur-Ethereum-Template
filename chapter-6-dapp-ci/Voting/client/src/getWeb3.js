@@ -8,6 +8,10 @@ const getWeb3 = () =>
       if (window.ethereum) {
         const web3 = new Web3(window.ethereum);
         try {
+          window.ethereum.on('accountsChanged', function() {
+            // it would be better to reload the state
+            window.location.reload();
+          });
           // Request account access if needed
           await window.ethereum.enable();
           // Accounts now exposed

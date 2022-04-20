@@ -9,7 +9,7 @@
   },
   "scripts": {
     "compile": "truffle compile",
-    "migrate": "truffle migrate",
+    "migrate": "truffle migrate --reset",
     "test": "truffle test",
     "coverage": "truffle run coverage",
     "ganache": "ganache --networkId 1337 --mnemonic \"silver course cost salon bring front review member wall tilt absent motor\""
