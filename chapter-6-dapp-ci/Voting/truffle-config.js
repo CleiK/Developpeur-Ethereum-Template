@@ -5,6 +5,7 @@ const path = require("path");
 dotenv.config();
 
 module.exports = {
+  plugins: ["solidity-coverage"],
   contracts_build_directory: path.join(__dirname, "client/src/contracts"),
    networks: {
     development: {
@@ -23,6 +24,14 @@ module.exports = {
     kovan:{
       provider : function() {return new HDWalletProvider({mnemonic:{phrase:`${process.env.MNEMONIC}`},providerOrUrl:`${process.env.KOVAN_URL}`})},
       network_id:42,
+    },
+  },
+
+  mocha: {
+    reporter: 'eth-gas-reporter',
+    reporterOptions: {
+      gasPrice: 1,
+      token: 'ETH',
     },
   },
 
