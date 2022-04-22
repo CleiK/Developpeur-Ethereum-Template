@@ -87,7 +87,12 @@ contract Voting is Ownable {
             keccak256(abi.encode(_desc)) != keccak256(abi.encode("")),
             "Vous ne pouvez pas ne rien proposer"
         ); // facultatif
-        // voir que desc est different des autres
+        // Limit the number of proposal so that tallyVotes dont consume too much gas
+        // (function would be uncallable and contract would be in broken state)
+        require(
+            proposalsArray.length < 1000,
+            "Too much proposals have been added"
+        );
 
         Proposal memory proposal;
         proposal.description = _desc;
