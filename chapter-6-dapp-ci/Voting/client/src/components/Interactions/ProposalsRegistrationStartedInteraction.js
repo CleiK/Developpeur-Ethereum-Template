@@ -29,6 +29,7 @@ export default class ProposalRegistrationStartedInteraction extends Component {
         // will be fired once the receipt is mined
         let addedProposalId = receipt.events.ProposalRegistered.returnValues.proposalId;
         component.setState({ interactionResult: "Proposal #" + addedProposalId + " has been added!" });
+        setTimeout(() => window.location.reload(), 2000);
       });
   }
 
@@ -48,6 +49,7 @@ export default class ProposalRegistrationStartedInteraction extends Component {
       .then(function (receipt) {
         // will be fired once the receipt is mined
         component.setState({ endRegisteringResult: "Voting contract is now in proposal registering ended state" });
+        setTimeout(() => window.location.reload(), 2000);
       });
   }
 

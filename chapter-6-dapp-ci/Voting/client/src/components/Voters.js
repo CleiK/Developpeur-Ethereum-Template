@@ -5,11 +5,32 @@ export default class Voters extends Component {
     super(props);
     this.state = { voters: [] };
     this.loadVoters();
+    this.loadVotes();
     // this.props.contract.events.VoterRegistered()
     //   .on('data', event => console.log(event))
     //   .on('changed', changed => console.log(changed))
     //   .on('error', err => console.log(err))
     //   .on('connected', str => console.log(str));
+  }
+
+  loadVotes = async () => {
+
+    this.props.contract.getPastEvents('Voted', { fromBlock: 0, toBlock: 'latest' })
+      .then((results) => {
+        //let voters = [];
+        results.forEach(async (result) => {
+          console.log(result);
+          // let voterInfo = await this.props.contract.methods.getVoter(result.address).call({ from: this.props.account });
+          // voters.push({ address: result.returnValues.voterAddress, info: voterInfo });
+          // console.log(voterInfo);
+          // this.setState({ voters: voters });
+        });
+
+        // this.setState({ voters: voters });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   loadVoters = async () => {
@@ -19,6 +40,7 @@ export default class Voters extends Component {
         results.forEach(async (result) => {
           let voterInfo = await this.props.contract.methods.getVoter(result.address).call({ from: this.props.account });
           voters.push({ address: result.returnValues.voterAddress, info: voterInfo });
+          console.log(voterInfo);
           this.setState({ voters: voters });
         });
 

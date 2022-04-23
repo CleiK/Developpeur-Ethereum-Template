@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import Web3 from 'web3';
 
 export default class RegisteringVotersInteraction extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export default class RegisteringVotersInteraction extends Component {
     // Needed to keep the correct 'this' in promises
     const component = this;
 
-    await this.props.contract.methods.addVoter(this.state.inputValue).send({ from: this.props.account })
+    await this.props.contract.methods.addVoter(Web3.utils.toChecksumAddress(this.state.inputValue)).send({ from: this.props.account })
       .once('transactionHash', function (hash) {
         console.log('Transaction sent with hash: ' + hash);
       })
@@ -29,7 +30,9 @@ export default class RegisteringVotersInteraction extends Component {
         // will be fired once the receipt is mined
         let addedVoterAddress = receipt.events.VoterRegistered.returnValues.voterAddress;
         component.setState({ addVoterResult: addedVoterAddress + " has been added as a voter!" });
+        setTimeout(() => window.location.reload(), 2000);
       });
+
   }
 
   handleSubmitWorkflowChange = async (e) => {
@@ -48,6 +51,7 @@ export default class RegisteringVotersInteraction extends Component {
       .then(function (receipt) {
         // will be fired once the receipt is mined
         component.setState({ startRegisteringResult: "Voting contract is now in proposal registering started state" });
+        setTimeout(() => window.location.reload(), 2000);
       });
   }
 

@@ -16,12 +16,12 @@ const workflowStatusString = [
 ];
 
 const infoString = [
-  'Le owner du contrat peut enregistrer des voteurs.',
-  'Les voteurs enregistrés peuvent ajouter des propositions.',
-  'Les ajouts de propositions sont terminés.',
-  'La session de vote a démarré.',
-  'La session de vote est terminé.',
-  'Les votes ont étés comptabilisés.',
+  'Contract\'s owner can register voters.',
+  'Registered voters can add proposals.',
+  'Proposal adding session is now ended, contract\'s owner can move to the next state.',
+  'Registered voters can now vote for their favorites proposals.',
+  'The voting session has ended, contract\'s owner can move to the next state.',
+  'Votes have been tallied !',
 ];
 
 export default class ContractInteraction extends React.Component {
@@ -33,31 +33,41 @@ export default class ContractInteraction extends React.Component {
     const InteractionComponent = () => {
       switch (Number(this.props.workflowStatus)) {
         case 0:
-          return (
-            <RegisteringVotersInteraction
-              account={this.props.account}
-              contract={this.props.contract}
-              contractStatus={workflowStatusString[this.props.workflowStatus]}
-              description={infoString[this.props.workflowStatus]}
-            />
-          );
+          return <RegisteringVotersInteraction
+            account={this.props.account}
+            contract={this.props.contract}
+            contractStatus={workflowStatusString[this.props.workflowStatus]}
+            description={infoString[this.props.workflowStatus]} />;
         case 1:
-          return (
-            <ProposalRegistrationStartedInteraction
-              account={this.props.account}
-              contract={this.props.contract}
-              contractStatus={workflowStatusString[this.props.workflowStatus]}
-              description={infoString[this.props.workflowStatus]}
-            />
-          );
+          return <ProposalRegistrationStartedInteraction
+            account={this.props.account}
+            contract={this.props.contract}
+            contractStatus={workflowStatusString[this.props.workflowStatus]}
+            description={infoString[this.props.workflowStatus]} />;
         case 2:
-          return <ProposalsRegistrationEndedInteraction />;
+          return <ProposalsRegistrationEndedInteraction
+            account={this.props.account}
+            contract={this.props.contract}
+            contractStatus={workflowStatusString[this.props.workflowStatus]}
+            description={infoString[this.props.workflowStatus]} />;
         case 3:
-          return <VotingSessionStartedInteraction />;
+          return <VotingSessionStartedInteraction
+            account={this.props.account}
+            contract={this.props.contract}
+            contractStatus={workflowStatusString[this.props.workflowStatus]}
+            description={infoString[this.props.workflowStatus]} />;
         case 4:
-          return <VotingSessionEndedInteraction />;
+          return <VotingSessionEndedInteraction
+            account={this.props.account}
+            contract={this.props.contract}
+            contractStatus={workflowStatusString[this.props.workflowStatus]}
+            description={infoString[this.props.workflowStatus]} />;
         case 5:
-          return <VotesTalliedInteraction />;
+          return <VotesTalliedInteraction
+            account={this.props.account}
+            contract={this.props.contract}
+            contractStatus={workflowStatusString[this.props.workflowStatus]}
+            description={infoString[this.props.workflowStatus]} />;
         default:
           console.log('Workflow status: ' + this.props.workflowStatus);
           return <p>Unknown workflow status!</p>;

@@ -14,6 +14,7 @@ export default class Proposals extends Component {
         results.forEach(async (result) => {
           let proposalInfo = await this.props.contract.methods.getOneProposal(result.returnValues.proposalId).call({ from: this.props.account });
           proposals.push({ proposalId: result.returnValues.proposalId, info: proposalInfo });
+          console.log(proposalInfo);
           this.setState({ proposals: proposals });
         })
         // this.setState({ proposals: proposals });

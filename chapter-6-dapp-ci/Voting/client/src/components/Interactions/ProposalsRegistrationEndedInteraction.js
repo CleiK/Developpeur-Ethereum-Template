@@ -6,8 +6,38 @@ export default class ProposalsRegistrationEndedInteraction extends Component {
     this.state = {};
   }
 
+  handleSubmitWorkflowChange = async (e) => {
+    e.preventDefault();
+
+    // Needed to keep the correct 'this' in promises
+    const component = this;
+
+    await this.props.contract.methods.startVotingSession().send({ from: this.props.account })
+      .once('transactionHash', function (hash) {
+        console.log('Transaction sent with hash: ' + hash);
+      })
+      .on('error', function (error) {
+        component.setState({ startVotingResult: error.message });
+      })
+      .then(function (receipt) {
+        // will be fired once the receipt is mined
+        component.setState({ startVotingResult: "Voting contract is now in voting session started state" });
+        setTimeout(() => window.location.reload(), 2000);
+      });
+  }
+
   render() {
-    return <p>ProposalsRegistrationEnded</p>;
+    return (
+      <div>
+        <h4>{this.props.contractStatus}</h4>
+        <p>{this.props.description}</p>
+
+        <form onSubmit={this.handleSubmitWorkflowChange} className="form">
+          <input type="submit" value="Start voting ession" className="button" />
+        </form>
+        <p>Start voting session interaction result: {this.state.startVotingResult}</p>
+      </div>
+    )
   }
 
 }
