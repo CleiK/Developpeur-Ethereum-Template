@@ -14,6 +14,7 @@ function App() {
   const [contractState, setContractState] = useState({
     owner: '',
     workflowStatus: 0
+    // events: { voterRegistered: [], workflowStatusChange: [], proposalRegistered: [], voted: [] },
   });
 
   useEffect(() => {
@@ -30,11 +31,16 @@ function App() {
         const deployedNetwork = VotingContract.networks[networkId];
         const instance = new web3.eth.Contract(VotingContract.abi, deployedNetwork && deployedNetwork.address);
 
+        console.log(instance.methods);
+
         let workflowStatus = await instance.methods.workflowStatus().call();
         let owner = await instance.methods.owner().call();
         setContractState({ owner: owner, workflowStatus: workflowStatus });
-        setState({ web3: web3, accounts: accounts, contract: instance });
 
+        //let value = await instance.methods.get().call();
+        // Set web3, accounts, and contract to the state, and then proceed with an
+        // example of interacting with the contract's methods.
+        setState({ web3: web3, accounts: accounts, contract: instance });
       } catch (error) {
         alert(`Failed to load web3, accounts, or contract. Check console for details.`);
         console.error(error);
@@ -55,6 +61,7 @@ function App() {
           contractAddress={state.contract.options.address}
         />
         <ContractInteraction
+          //contractState={contractState}
           workflowStatus={contractState.workflowStatus}
           account={state.accounts[0]}
           contract={state.contract}

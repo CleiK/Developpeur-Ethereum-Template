@@ -1,10 +1,7 @@
 # Voting DApp
 
-## Live
-
-See https://cleik.github.io/Developpeur-Ethereum-Template/
-
 ## Local
+
 
 In a separate terminal, launch a local ganache instance
 ```
@@ -13,7 +10,7 @@ npm run ganache
 
 Compile and deploy on your local blockchain
 ```
-npm run ganache
+truffle migrate --reset --network development
 ```
 
 Configure your browser wallet with ganache available accounts and ganache local blockchain

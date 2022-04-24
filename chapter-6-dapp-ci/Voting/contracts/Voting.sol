@@ -108,7 +108,7 @@ contract Voting is Ownable {
             "Voting session havent started yet"
         );
         require(voters[msg.sender].hasVoted != true, "You have already voted");
-        require(_id < proposalsArray.length, "Proposal not found"); // pas obligé, et pas besoin du >0 car uint
+        require(_id <= proposalsArray.length, "Proposal not found"); // pas obligé, et pas besoin du >0 car uint
 
         voters[msg.sender].votedProposalId = _id;
         voters[msg.sender].hasVoted = true;
