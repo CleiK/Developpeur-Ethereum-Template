@@ -33,7 +33,7 @@ export default class ProposalsRegistrationEndedInteraction extends Component {
         <p>{this.props.description}</p>
 
         <form onSubmit={this.handleSubmitWorkflowChange} className="form">
-          <input type="submit" value="Start voting ession" className="button" />
+          <input type="submit" value="Start voting session" className="button" />
         </form>
         <p>Start voting session interaction result: {this.state.startVotingResult}</p>
       </div>
