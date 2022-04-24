@@ -25,9 +25,6 @@ const infoString = [
 ];
 
 export default class ContractInteraction extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const InteractionComponent = () => {
