@@ -1,5 +1,10 @@
 # Voting DApp
 
+## Live
+
+Contract is live on Rinkeby at 0xE190B6198944f10aa9D19A12Dd98Cd2626418ffE
+Found the frontend at https://cleik.github.io/Developpeur-Ethereum-Template/
+
 ## Local
 
 
@@ -10,7 +15,7 @@ npm run ganache
 
 Compile and deploy on your local blockchain
 ```
-truffle migrate --reset --network development
+npm run migrate
 ```
 
 Configure your browser wallet with ganache available accounts and ganache local blockchain
